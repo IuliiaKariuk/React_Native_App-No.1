@@ -1,14 +1,25 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, StyleSheet, TextInput, Button} from 'react-native';
 
 export const AddToDo = ({onSubmit}) => {
 
+const [value, setValue] = useState('');
+
 const pressHandler = () => {
-    onSubmit('Test text')
+    if(value.trim()) {
+        onSubmit(value)
+        setValue('')
+    }else{
+        //error
+    }
 }
     return (
     <View style = {styles.wrapper}>
-        <TextInput style = {styles.input}/>
+        <TextInput 
+        style = {styles.input} 
+        onChangeText = {setValue} 
+        value = {value}
+        placeholder = 'Typing...'/>
         <Button title = "Add" onPress = {pressHandler}/>
     </View>
     )
