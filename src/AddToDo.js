@@ -19,7 +19,11 @@ const pressHandler = () => {
         style = {styles.input} 
         onChangeText = {setValue} 
         value = {value}
-        placeholder = 'Typing...'/>
+        placeholder = 'Typing...'
+        autoCorrect = {false}
+        autoCapitalize = 'characters'
+        //keyboardType = 'email-address'
+        />
         <Button title = "Add" onPress = {pressHandler}/>
     </View>
     )
