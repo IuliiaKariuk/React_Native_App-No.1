@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, StyleSheet, TextInput, Button} from 'react-native';
+import {View, StyleSheet, TextInput, Button, Alert} from 'react-native';
 
 export const AddToDo = ({onSubmit}) => {
 
@@ -10,7 +10,7 @@ const pressHandler = () => {
         onSubmit(value)
         setValue('')
     }else{
-        //error
+        Alert.alert('Invalid input')
     }
 }
     return (
