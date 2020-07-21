@@ -6,31 +6,30 @@ import {AddToDo} from './src/AddToDo'
 import { ToDo } from './src/ToDo';
 
 export default function App() {
-  const [toDos, setToDos] = useState([
-    {id:1, title:'test'},
-    {id:2, title:'test'},
-    {id:3, title:'test'},
-    {id:4, title:'test'},
-    {id:5, title:'test'}
-  ])
+  const [toDos, setToDos] = useState([])
   const addToDos = title => {
     setToDos(prev => [
       ...prev,
       {
-        id: Date.now().toString,
+        id: Date.now().toString(),
         title
       }
     ])
   }
+
+const removeToDo = id => {
+  setToDos(prev => prev.filter(todo => todo.id != id))               //якщо todo id не рівне id
+}
+
   return (
     <View>
     <Navbar title = "To Do App"/>
     <View style = {styles.container}>
     <AddToDo onSubmit = {addToDos}/>
     <FlatList
-      keyExtractor = {(item, index) => index.toString()}
+      keyExtractor = {(item) => item.id}
       data = {toDos}
-      renderItem = {({item}) => <ToDo todo={item} />}
+      renderItem = {({item}) => <ToDo todo={item} onRemove = {removeToDo}/>}
     />
     </View>
     </View>
