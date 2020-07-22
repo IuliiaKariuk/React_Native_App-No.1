@@ -7,7 +7,7 @@ import {ToDoScreen} from './src/screens/ToDoScreen';
 
 export default function App() {
 
-  const [toDoID, setToDoId] = useState(null)
+  const [toDoID, setToDoId] = useState('1')
 
   const [toDos, setToDos] = useState([
     {id: '1', title : "Вивчити React"},
@@ -30,7 +30,7 @@ const removeToDo = id => {
 let content = (<MainScreen addToDos = {addToDos} toDos = {toDos} removeToDo = {removeToDo} openToDo = {setToDoId}/>)
 
 if (toDoID) {
-  const selectedToDo = toDos.find(todo => todo.id === toDoID)                 //якщо сереед масиву id елем співпадає з вибраним елем, то виводжу сам todo айтем
+  const selectedToDo = toDos.find(todo => todo.id === toDoID)                 //якщо серед масиву id елем співпадає з вибраним елем, то виводжу сам todo айтем
   content = <ToDoScreen goBack = {() => setToDoId(null)} todo = {selectedToDo}/>
 }
   return (
