@@ -6,7 +6,7 @@ export const AddToDo = ({onSubmit}) => {
 const [value, setValue] = useState('');
 
 const pressHandler = () => {
-    if(value.trim()) {
+    if(value) {
         onSubmit(value)
         setValue('')
     }else{
