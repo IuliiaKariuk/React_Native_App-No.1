@@ -1,6 +1,6 @@
 //import { StatusBar } from 'expo-status-bar';
 import React, {useState} from 'react';
-import { StyleSheet, View} from 'react-native';
+import { StyleSheet, View, Alert} from 'react-native';
 import {Navbar} from './src/components/Navbar';
 import { MainScreen } from './src/screens/MainScreen';
 import {ToDoScreen} from './src/screens/ToDoScreen';
@@ -24,14 +24,29 @@ export default function App() {
   }
 
 const removeToDo = id => {
-  setToDos(prev => prev.filter(todo => todo.id != id))               
+  const todo = toDos.find(t => t.id == id)
+  Alert.alert(
+    'Delete element',
+    `Are you sure to delete ${todo.title}?`,
+    [
+      {
+        text: 'Cancel',
+        onPress: () => console.log('Cancel Pressed')
+      },
+      { text: 'OK', onPress: () => {
+        setToDoId(null)
+        setToDos(prev => prev.filter(todo => todo.id != id))    
+      } }
+    ],
+    { cancelable: false }
+  );           
 }
 
 let content = (<MainScreen addToDos = {addToDos} toDos = {toDos} removeToDo = {removeToDo} openToDo = {setToDoId}/>)
 
 if (toDoID) {
   const selectedToDo = toDos.find(todo => todo.id === toDoID)                 //якщо серед масиву id елем співпадає з вибраним елем, то виводжу сам todo айтем
-  content = <ToDoScreen goBack = {() => setToDoId(null)} todo = {selectedToDo}/>
+  content = <ToDoScreen goBack = {() => setToDoId(null)} todo = {selectedToDo} onRemove = {removeToDo}/>
 }
   return (
     <View>
