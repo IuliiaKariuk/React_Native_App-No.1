@@ -26,7 +26,7 @@ export default function App() {
 const removeToDo = id => {
   const todo = toDos.find(t => t.id == id)
   Alert.alert(
-    'Delete element',
+    'Delete the element',
     `Are you sure to delete ${todo.title}?`,
     [
       {
