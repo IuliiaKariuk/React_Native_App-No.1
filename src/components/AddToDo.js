@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {View, StyleSheet, TextInput, Button, Alert} from 'react-native';
+import {AntDesign} from '@expo/vector-icons';
 
 export const AddToDo = ({onSubmit}) => {
 
@@ -24,7 +25,8 @@ const pressHandler = () => {
         autoCapitalize = 'characters'
         //keyboardType = 'email-address'
         />
-        <Button title = "Add" onPress = {pressHandler}/>
+        <AntDesign.Button name="pluscircleo" onPress = {pressHandler} >Add</AntDesign.Button>
+        {/* <Button title = "Add" onPress = {pressHandler}/> */}
     </View>
     )
 }
