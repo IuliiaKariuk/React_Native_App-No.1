@@ -42,11 +42,20 @@ const removeToDo = id => {
   );           
 }
 
+const updateToDo = (id, title) => {
+setToDos(old => old.map(todo => {
+  if(todo.id === id) {
+    todo.title = title
+  }
+  return todo
+}))
+}
+
 let content = (<MainScreen addToDos = {addToDos} toDos = {toDos} removeToDo = {removeToDo} openToDo = {setToDoId}/>)
 
 if (toDoID) {
   const selectedToDo = toDos.find(todo => todo.id === toDoID)                 //якщо серед масиву id елем співпадає з вибраним елем, то виводжу сам todo айтем
-  content = <ToDoScreen goBack = {() => setToDoId(null)} todo = {selectedToDo} onRemove = {removeToDo}/>
+  content = <ToDoScreen goBack = {() => setToDoId(null)} todo = {selectedToDo} onRemove = {removeToDo} onSave = {updateToDo}/>
 }
   return (
     <View>

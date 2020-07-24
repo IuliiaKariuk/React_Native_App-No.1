@@ -4,13 +4,18 @@ import {THEME} from '../theme';
 import { AppCard } from '../components/ui/AppCard';
 import { EditModal } from '../components/EditModal';
 
-export const ToDoScreen = ({goBack, todo, onRemove}) => {
+export const ToDoScreen = ({goBack, todo, onRemove, onSave}) => {
 
     const [modal, setModal] = useState(false)                   //початковий стан false - не показується
 
+const SaveHandler = title => {                     //різниця в тайтлі
+onSave(todo.id, title)
+setModal(false)
+}    
+
 return(
     <View>
-        <EditModal  visible = {modal} onCancel = {()=> setModal(false)}/>
+        <EditModal value = {todo.title} visible = {modal} onCancel = {()=> setModal(false)} onSave = {SaveHandler}/>
         <AppCard style = {styles.card}>
         <Text style = {styles.title}>{todo.title}</Text>
         <Button title = "Edit" onPress = {()=> setModal(true)}></Button>
