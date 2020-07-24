@@ -3,6 +3,7 @@ import {StyleSheet, View, Button, Text} from 'react-native';
 import {THEME} from '../theme';
 import { AppCard } from '../components/ui/AppCard';
 import { EditModal } from '../components/EditModal';
+import {AppText} from '../components/ui/AppText';
 
 export const ToDoScreen = ({goBack, todo, onRemove, onSave}) => {
 
@@ -17,7 +18,7 @@ return(
     <View>
         <EditModal value = {todo.title} visible = {modal} onCancel = {()=> setModal(false)} onSave = {SaveHandler}/>
         <AppCard style = {styles.card}>
-        <Text style = {styles.title}>{todo.title}</Text>
+        <AppText style = {styles.title}>{todo.title}</AppText>
         <Button title = "Edit" onPress = {()=> setModal(true)}></Button>
         </AppCard>
    <View style = {styles.buttons}>
