@@ -7,11 +7,10 @@ import {ToDoScreen} from './src/screens/ToDoScreen';
 
 export default function App() {
 
-  const [toDoID, setToDoId] = useState('1')
+  const [toDoID, setToDoId] = useState(null)
 
   const [toDos, setToDos] = useState([
-    {id: '1', title : "Вивчити React"},
-    {id: '2', title: "Написати апку"}
+    //{id: '1', title : "Вивчити React"}
   ])
   const addToDos = title => {
     setToDos(prev => [
@@ -47,7 +46,7 @@ setToDos(old => old.map(todo => {
   if(todo.id === id) {
     todo.title = title
   }
-  return todo
+  return todo                                                       //повертаю так чи інакше туду елем, але якщо відредагований, то повертаю новий тайтл
 }))
 }
 
