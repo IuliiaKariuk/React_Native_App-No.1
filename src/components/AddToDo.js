@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, StyleSheet, TextInput, Button, Alert} from 'react-native';
+import {View, StyleSheet, TextInput, Alert} from 'react-native';
 import {AntDesign} from '@expo/vector-icons';
 
 export const AddToDo = ({onSubmit}) => {

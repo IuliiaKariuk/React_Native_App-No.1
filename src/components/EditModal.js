@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
-import {StyleSheet, Button, View, TextInput, Modal, Alert} from 'react-native';
+import {StyleSheet, View, TextInput, Modal, Alert} from 'react-native';
 import { THEME } from '../theme';
+import {AppButton} from './ui/AppButton'
 
 export const EditModal = ({visible, onCancel, value, onSave}) => {     //visible - відпов. за появу/зникнення модал. вікна
     const [title, setValue] = useState(value)         
@@ -17,8 +18,8 @@ export const EditModal = ({visible, onCancel, value, onSave}) => {     //visible
         <View style = {styles.wrap}>
             <TextInput value = {title} onChangeText = {setValue} style = {styles.input} placeholder = "Editing..." maxLength = {64}/>
             <View style = {styles.buttons}>
-            <Button title = "Save" onPress = {SaveHandler}/>
-            <Button title = "Cancel" color = {THEME.DANGER_COLOR} onPress = {onCancel}/>
+            <AppButton onPress = {SaveHandler}>Save</AppButton>
+            <AppButton color = {THEME.DANGER_COLOR} onPress = {onCancel}>Cancel</AppButton>
             </View>
         </View>
     </Modal>
