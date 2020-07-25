@@ -21,7 +21,7 @@ return(
         <EditModal value = {todo.title} visible = {modal} onCancel = {()=> setModal(false)} onSave = {SaveHandler}/>
         <AppCard style = {styles.card}>
         <AppText style = {styles.title}>{todo.title}</AppText>
-        <AppButton onPress = {()=> setModal(true)}><FontAwesome name="edit" size={24} color="black" /></AppButton>
+        <AppButton onPress = {()=> setModal(true)}><FontAwesome name="edit" size={24} color="black"/></AppButton>
         </AppCard>
    <View style = {styles.buttons}>
    <View style = {styles.button}><AppButton onPress = {goBack} color = {THEME.GRAY_COLOR}><AntDesign name = 'back' size = {20}/></AppButton></View>

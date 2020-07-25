@@ -26,7 +26,7 @@ const pressHandler = () => {
         autoCapitalize = 'characters'
         //keyboardType = 'email-address'
         />
-        <AntDesign.Button name="pluscircleo" onPress = {pressHandler} >Add</AntDesign.Button>
+        <AntDesign.Button name="pluscircleo" onPress = {pressHandler}>Add</AntDesign.Button>
         {/* <Button title = "Add" onPress = {pressHandler}/> */}
     </View>
     )
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     input: {
-        width: '80%',
+        width: '75%',
         padding: 10,
         borderStyle: 'solid',
         borderBottomWidth: 2,
