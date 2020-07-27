@@ -26,7 +26,7 @@ const pressHandler = () => {
         autoCapitalize = 'characters'
         //keyboardType = 'email-address'
         />
-        <AntDesign.Button name="pluscircleo" onPress = {pressHandler}>Add</AntDesign.Button>
+        <AntDesign.Button name="pluscircleo" onPress = {pressHandler} width = {80}>Add</AntDesign.Button>
         {/* <Button title = "Add" onPress = {pressHandler}/> */}
     </View>
     )
