@@ -7,7 +7,15 @@ export const TodoState = ({children}) => {
         todos: [{id: '1', title : "Вивчити React"}]
     }
     const [state, dispatch] = useReducer(todoReducer, initialState)
-    return (<TodoContext.Provider value = {{todos: state.todos}}> {children} </TodoContext.Provider>)
+    return (
+    <TodoContext.Provider 
+    value = 
+    {{todos: state.todos
+    }}
+    > 
+    {children} 
+    </TodoContext.Provider>
+    )
 }
 
 
