@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {StyleSheet, View, Button, Text} from 'react-native';
+import {StyleSheet, View, Dimensions} from 'react-native';
 import {THEME} from '../theme';
 import { AppCard } from '../components/ui/AppCard';
 import { EditModal } from '../components/EditModal';
@@ -21,7 +21,7 @@ return(
         <EditModal value = {todo.title} visible = {modal} onCancel = {()=> setModal(false)} onSave = {SaveHandler}/>
         <AppCard style = {styles.card}>
         <AppText style = {styles.title}>{todo.title}</AppText>
-        <AppButton onPress = {()=> setModal(true)}><FontAwesome name="edit" size={24} color="black"/></AppButton>
+        <AppButton onPress = {()=> setModal(true)}><FontAwesome name="edit" size={24} color="black" /></AppButton>
         </AppCard>
    <View style = {styles.buttons}>
    <View style = {styles.button}><AppButton onPress = {goBack} color = {THEME.GRAY_COLOR}><AntDesign name = 'back' size = {20}/></AppButton></View>
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-around'
     },
     button: {
-        width: '40%'
+        width: Dimensions.get('window').width > 400 ? 150 : 100
     },
     title: {
         fontSize: 20
