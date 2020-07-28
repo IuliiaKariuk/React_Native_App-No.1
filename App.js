@@ -2,7 +2,7 @@
 import React, {useState} from 'react';
 import * as Font from 'expo-font';
 import {AppLoading} from 'expo'
-import { TodoState } from './src/context/TodoState';
+import { TodoState } from './src/context/todo/TodoState';
 import { MainLayout } from './src/MainLayout';
 
 
@@ -22,7 +22,9 @@ export default function App() {
   }
 
   
-return (
-    <TodoState><MainLayout/></TodoState>
-)
+  return (
+    <TodoState>
+    <MainLayout />
+    </TodoState>
+  )
 }

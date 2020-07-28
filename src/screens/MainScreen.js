@@ -3,14 +3,14 @@ import {StyleSheet, View, FlatList, Image} from 'react-native';
 import {AddToDo} from '../components/AddToDo';
 import {ToDo} from '../components/ToDo';
 
-export const MainScreen = ({addToDos, toDos, removeToDo, openToDo}) => {
+export const MainScreen = ({addToDos, todos, removeToDo, openToDo}) => {
     let content = (<FlatList
     keyExtractor = {(item) => item.id}
-    data = {toDos}
+    data = {todos}
     renderItem = {({item}) => <ToDo todo={item} onRemove = {removeToDo} onOpen = {openToDo}/>}
   />)
 
-  if(toDos.length === 0) {
+  if(todos.length === 0) {
       content = <View style = {styles.imgWrap}>
           <Image style = {styles.image} source = {require('../../assets/no-items.png')}/>
       </View>
