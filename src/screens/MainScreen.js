@@ -1,14 +1,18 @@
-import React from 'react';
+import React, { useEffect, useCallback } from 'react';
 import {StyleSheet, View, FlatList, Image} from 'react-native';
 import {AddToDo} from '../components/AddToDo';
 import {ToDo} from '../components/ToDo';
 
-export const MainScreen = ({addToDos, todos, removeToDo, openToDo}) => {
+export const MainScreen = ({addToDos, todos, removeToDo, openToDo, loading, error, fetchToDos}) => {
     let content = (<FlatList
     keyExtractor = {(item) => item.id}
     data = {todos}
     renderItem = {({item}) => <ToDo todo={item} onRemove = {removeToDo} onOpen = {openToDo}/>}
   />)
+        const loadToDos = useCallback(async() => await fetchToDos, [fetchToDos])
+useEffect(() => {
+    loadToDos()
+}, [])
 
   if(todos.length === 0) {
       content = <View style = {styles.imgWrap}>
